@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+   
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-left">
+            <li><a routerLink="add-recipe">Add</a></li>
+            <li><a routerLink="view-recipes">View</a></li>
+            <li><a routerLink="favorites">My Favorites</a></li>
+        </ul>
+<ul class="navbar-right">
+        <li><a (click)="register()">Logout</a></li>
+        </ul>        
+    </nav>
+    <div class="container-fluid">
+        <router-outlet></router-outlet>
+    </div>
+</body>
+</html>

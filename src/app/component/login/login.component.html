@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+            <div class="mb-3">
+              <h4 class="text-dark text-muted">Login</h4>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" id="email" class="form-control" formControlName="email" autocomplete="new-password" (input)="onInput($event)">
+              <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger">
+                Please enter a valid email
+              </div>
+              <div *ngIf="suggestions.length > 0" class="autocomplete-items">
+                <div *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">
+                  {{ suggestion }}
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password" autocomplete="new-password">
+              <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger">
+                Password must be at least 6 characters
+              </div>
+            </div>
+            <button type="submit" class="btn btn-info">Login</button>
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <a href="/register" style="text-decoration: none;">Need an account? <span class="text-danger">Register</span></a>
+              </div>
+              <div class="col-md-6">
+                <a href="" style="text-decoration: none;">Forgot password?</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

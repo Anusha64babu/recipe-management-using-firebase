@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card border-0 shadow p-3">
+    <div class="form-floating mb-3 text-center">
+      <h5 class="text-center text-warning">Edit Recipe</h5>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="recipeName" name="recipeName" [(ngModel)]="name">
+      <label for="recipeName">Recipe Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="image" name="image" [(ngModel)]="image">
+      <label for="image">Image URL</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control" id="ingredients" name="ingredients" [(ngModel)]="ingredients"></textarea>
+      <label for="ingredients">Ingredients</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control" id="howToCook" name="howToCook" [(ngModel)]="howToCook"></textarea>
+      <label for="howToCook">How to Cook</label>
+    </div>
+    <button type="button" class="btn btn-outline-success" (click)="updateRecipe()">Update Recipe</button>
+    <button type="button" class="btn btn-outline-secondary" [routerLink]="['/dashboard/view-recipes']">Cancel</button>
+  </div>
+</div>

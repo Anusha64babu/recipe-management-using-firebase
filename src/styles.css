@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.fa-star, .fa-star-o {
+    cursor: pointer;
+    color: gold;
+    font-size: 1.5em;
+  }
+  

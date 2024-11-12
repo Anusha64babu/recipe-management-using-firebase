@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h5 class="text-success">My Favorite Recipes</h5>
+    <div class="card p-3 shadow">
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Recipe Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Ingredients</th>
+              <th scope="col">How to Cook</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let recipe of favoriteRecipesList">
+              <td>{{recipe.name}}</td>
+              <td><img [src]="recipe.image" alt="{{recipe.name}}" style="width: 100px; height: auto;"></td>
+              <td>{{recipe.ingredients.join(', ')}}</td>
+              <td>{{recipe.howToCook}}</td>
+              <td>
+                <button class="btn btn-outline-warning" (click)="removeFromFavorites(recipe)">Remove from Favorites</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

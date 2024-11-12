@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="text-danger">Recipe List</h5>
+    <input type="text" class="form-control w-50" [(ngModel)]="searchQuery" (input)="searchRecipes()" placeholder="Search by ingredients...">
+  </div>
+  <div class="card p-3 shadow">
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Recipe Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Ingredients</th>
+            <th scope="col">How to Cook</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let recipe of filteredRecipesList">
+            <td>{{recipe.name}}</td>
+            <td><img [src]="recipe.image" alt="{{recipe.name}}" style="width: 100px; height: auto;"></td>
+            <td>{{recipe.ingredients.join(', ')}}</td>
+            <td>{{recipe.howToCook}}</td>
+            <td>
+              <button class="btn btn-outline-primary" [routerLink]="['/dashboard/edit-recipe', recipe.id]">Edit</button>
+              <button class="btn btn-outline-danger" (click)="deleteRecipe(recipe)">Delete</button>
+              <button class="btn btn-outline-success" (click)="addToFavorites(recipe)">Add to Favorites</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

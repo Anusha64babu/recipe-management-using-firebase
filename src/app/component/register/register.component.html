@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col"></div>
+      <div class="col-4">
+        <div class="card shadow">
+          <div class="card-body">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+              <div class="mb-3">
+                <h4 class="text-dark text-muted">Register</h4>
+              </div>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" formControlName="firstName" autocomplete="off">
+                <div *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid" class="text-danger">
+                  First name is required
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastName" autocomplete="off">
+                <div *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid" class="text-danger">
+                  Last name is required
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" formControlName="email" autocomplete="new-password">
+                <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid" class="text-danger">
+                  Please enter a valid email
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" formControlName="password" autocomplete="new-password">
+                <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid" class="text-danger">
+                  Password must be at least 6 characters
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword" autocomplete="new-password">
+                <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.errors?.['notSame']" class="text-danger">
+                  Passwords do not match
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" formControlName="phoneNumber" autocomplete="off">
+                <div *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.invalid" class="text-danger">
+                  Phone number is required
+                </div>
+              </div>
+              <button type="submit" class="btn btn-info">Register</button>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <a href="/login" style="text-decoration: none;">Have an account? <span class="text-danger">Login</span></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+  
